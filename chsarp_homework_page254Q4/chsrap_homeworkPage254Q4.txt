@@ -1,0 +1,160 @@
+using System;
+using static System.Console;
+/*Creater Andrew Spence
+ Date: 2019/08/17
+ Objective:Create a Employee Class*/
+
+namespace csharp_homework_page254Q4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee Name = new Employee("Andrew","Spence");
+            WriteLine(Name.EmployeeFirstName + " " + Name.EmployeeLastName);
+            ReadKey();
+
+            Employee Name1 = new Employee("Andrew", "Spence");
+            WriteLine(Name.EmployeeLastName + " , " + Name.EmployeeFirstName);
+            ReadKey();
+
+
+
+            Employee Andrew = new Employee("3245","2006/31/09","App Developer", "1,000,000,000,000","Software Developers Department");
+            Write("\n"+"Employee Number: "+ Andrew.EmployeeNumber + "\n" +"DateHired: " +Andrew.DateHired + 
+                "\n"+"Department: " + Andrew.Department +"\n"+"MonthlySalery: "+"$"+Andrew.MonthlySalery+"\n"+"Job Description: "+Andrew.JobDescription);
+
+            ReadKey();
+            
+            
+
+
+
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace csharp_homework_page254Q4
+{
+    class Employee
+    {
+        private string employeeNumber;
+        private string employeeFirstName;
+        private string employeeLastName;
+        private string dateHired;
+        private string jobDescription;
+        private string department;
+        private string monthlySalery;
+
+        public Employee() {
+        }
+        /*Employee FirstName*/
+        public Employee(string getEmpFirstName, string getEmpLastName) {
+
+            employeeFirstName = getEmpFirstName;
+            employeeLastName = getEmpLastName;
+           
+
+        }
+        public Employee( string getEmpNumber, string getDateHired, string getJobDescription, string getMonthlySalery, string getDepartment) {
+
+            employeeNumber = getEmpNumber;
+            dateHired = getDateHired;
+            department = getDepartment;
+            monthlySalery = getMonthlySalery;
+            JobDescription = getJobDescription;
+        }
+        
+        public string EmployeeFirstName
+        {
+            get
+            {
+                return employeeFirstName;
+            }
+            set
+            {
+                employeeFirstName = value;
+            }
+        }
+               public string EmployeeLastName
+        {
+            get
+            {
+                return employeeLastName;
+            }
+            set
+            {
+                employeeLastName = value;
+            }
+        }
+                public string EmployeeNumber
+        {
+            get
+            {
+                return employeeNumber;
+            }
+            set
+            {
+                employeeNumber = value;
+            }
+        }
+                public string DateHired
+        {
+            get
+            {
+                return dateHired;
+            }
+            set
+            {
+                dateHired = value;
+            }
+        }
+                 public string JobDescription
+        {
+            get
+            {
+                return jobDescription;
+            }
+            set
+            {
+                jobDescription = value;
+            }
+        }
+                 public string Department
+             {
+            get
+            {
+                return department;
+            }
+            set
+            {
+                department = value;
+            }
+        }
+             public string MonthlySalery
+        {
+            get
+            {
+                return monthlySalery;
+            }
+            set
+            {
+                monthlySalery = value;
+            }
+        }
+
+
+
+    }
+ 
+
+
+
+
+
+}
