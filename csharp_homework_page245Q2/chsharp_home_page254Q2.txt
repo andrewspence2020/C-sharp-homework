@@ -1,0 +1,118 @@
+using System;
+using static System.Console;
+/**Creater: Andrew Spence
+ Date: 2019/08/14
+    Objectice: to make a student class, apply properties and methods to display my name*/
+
+namespace csharp_homework_page254Q2
+{
+    class StudentApp
+    {
+        static void Main(string[] args)
+        {
+            Student myName = new Student("Andrew","Spence");
+            WriteLine(myName.studentFirstName + " " +myName.studentLastName);
+            ReadKey();
+
+            WriteLine("******************************************************");
+
+            Student myClass = new Student("Andrew","Spence","3213","C# development Certifaction","App Development");
+            WriteLine("First name: "+myClass.StudentFirstName + " " +"LastName: "+myClass.studentLastName + " " + "Student ID: "+myClass.StudentNumber + " " + 
+                "My Classification: "  + " "+"\n"+ myClass.Classification +" My Major: "+ myClass.Major);
+            ReadKey();
+
+        }
+
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace csharp_homework_page254Q2
+{
+    class Student
+    {
+        public string studentNumber;
+        public string studentFirstName;
+        public string studentLastName;
+        public string classification;
+        public string major;
+
+
+        public Student(string firstName, string lastName)
+        {
+            studentFirstName = firstName;
+            studentLastName = lastName;
+        }
+        public Student(string firstname, string lastName, string studentID, string Certs,string jobtitle)
+        {
+            studentFirstName = firstname;
+            StudentLastName = lastName;
+            studentNumber = studentID;
+            classification = Certs;
+            major = jobtitle;
+
+        }
+
+        public Student()
+        {
+        }
+        public string StudentLastName
+        {
+            get
+            {
+                return studentLastName;
+            }
+            set => studentLastName = value;
+        }
+        public string StudentFirstName
+        {
+            get
+            {
+                return studentFirstName;
+            }
+            set
+            {
+                studentFirstName = value;
+            }
+        }
+        public string StudentNumber
+        {
+            get
+            {
+                return studentNumber;
+            }
+            set => studentNumber = value;
+
+
+
+        }
+        public string Classification
+        {
+            get
+            {
+                return classification;
+            }
+            set => classification = value;
+
+
+
+        }
+        public string Major
+        {
+            get
+            {
+                return major;
+            }
+            set => major = value;
+
+
+
+        }
+
+    }
+}
+

@@ -1,0 +1,164 @@
+using Chapter7;
+using System;
+using static System.Console;
+
+namespace Chapter7_EX_1
+{
+    class RainFallRunner
+    {
+        static void Main(string[] args)
+        {
+
+         RainFall monthlyRain = new RainFall();
+
+            // Prompting user to enter value of monthly rain
+
+            monthlyRain.GetRainFall();
+
+            // Getting monthly rain entere by user
+
+            double[] rainForMonth = monthlyRain.Rain;
+           
+            // Getting sum of monthly rain entered by user
+
+            double sum = 0;
+            int i;
+            for(i = 0; i < rainForMonth.Length; i++)
+            {
+                sum += rainForMonth[i];
+            }
+
+            // Calculating average of monthly rain
+
+            monthlyRain.AvgRainFall = sum / 12.0;
+
+           
+            // Calculating stadard deviation
+            double diferences = 0;
+            double sumOfdifferences = 0;
+
+            for (i = 0; i < 12; i++)
+            {
+                diferences = (rainForMonth[i] - monthlyRain.AvgRainFall);
+                sumOfdifferences = diferences * diferences;
+                sumOfdifferences += sumOfdifferences;
+            }
+            double meanDifference = sumOfdifferences / 12.0;
+            monthlyRain.Variance = Math.Sqrt(meanDifference);
+            WriteLine();
+            
+            WriteLine("{0, 20}" , "Rain Calculator ");
+            WriteLine();
+            WriteLine("Aveg rain fall in curent year is {0:N}", monthlyRain.AvgRainFall);
+            WriteLine();
+
+            for (i = 0; i < 12; i++)
+            {
+            WriteLine("{0}. {1,15}: {2,15:N}" , i + 1, monthlyRain.Month[i] ,  rainForMonth[i]);
+            }
+            WriteLine();
+            WriteLine("Monthly rain for a month is + or - of average is  {0:N}", monthlyRain.Variance);
+			
+        }
+       
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using static System.Console;
+
+namespace Chapter7
+
+{
+    class RainFall
+    {
+        private double variance;
+        private double avgRainFall;
+
+        private double[] rain = new double[12];
+        private string[] month = { "January", "February", "March", "April",
+                                "May", "June", "July", "August",
+                                "September", "October", "November",
+                                "December" };
+
+        internal void GetRainFall()
+        {
+            int i;
+            for (i = 0; i < rain.Length; i++)
+            {
+                string inValue;
+                Write("Please enter rain fall for " + month[i] + " month:-");
+                inValue = ReadLine();
+                rain[i] = double.Parse(inValue);
+
+            }             
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        public RainFall()
+        {
+
+        }
+
+        public RainFall(double[] rain, string[] month)
+        {
+            this.rain = rain;
+            this.month = month;
+        }
+
+        public double []Rain
+        {
+            get
+            {
+                return rain;
+            }
+            set
+            {
+                rain = value;
+            }
+        }
+        public string[] Month
+        {
+            get
+            {
+                return month;
+            }
+            set
+            {
+                month = value;
+            }
+        }
+        public double AvgRainFall
+        {
+            get
+            {
+                return avgRainFall;
+            }
+            set
+            {
+                avgRainFall = value;
+            }
+        }
+        public double Variance
+        {
+            get
+            {
+                return variance;
+            }
+            set
+            {
+                variance = value;
+            }
+
+
+        }
+    }
+}
+
+       

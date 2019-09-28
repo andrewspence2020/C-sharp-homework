@@ -1,0 +1,48 @@
+using System;
+using static System.Console;
+
+namespace Ch7Ex2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string inValue;
+
+            int userCnt, loop = 0;
+            int[] points = new int[1000];
+
+            Write("How many users? ");
+            inValue = ReadLine();
+            if (int.TryParse(inValue, out userCnt) == false)
+                WriteLine("Invalid data entered - " +
+                                    "0 recorded for number of players.");
+            string[] ln = new string[userCnt];
+            string[] fn = new string[userCnt];
+            string[] fullName = new string[userCnt];
+
+            while (loop < userCnt)
+            {
+                Write("Enter the last name: ");
+                inValue = ReadLine();
+                ln[loop] = inValue;
+                Write("Enter the first name: ");
+                inValue = ReadLine();
+                fn[loop] = inValue;
+                fullName[loop] = ln[loop] + ", " + fn[loop];
+                loop++;
+            }
+            Array.Sort(fullName);
+            loop = 0;
+            Write("You entered the following names, in alphabetical order: ");
+            while (loop < userCnt)
+            {
+                Write("\n {0}", fullName[loop]);
+                loop++;
+            }
+
+
+        }
+    }
+}

@@ -1,0 +1,47 @@
+using System;
+using static System.Console;
+/**Creater: Andrew Spence
+ * Date: 2019-08-13
+ Objective: have a User Input there name and favorite saying then have there
+ saying displayed to the screen surrunded with greater and less than symbols.*/
+
+namespace Csharp_homework_page_195Q1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            UserInstructions();
+            getInputName();
+            getFavouriteSaying();
+           
+            
+
+
+        }
+        static void UserInstructions() {
+            WriteLine("Hello This program is going to be asking what you name is and " + "\n" +
+                "what your favourite saying is Ok....Lets Go!!! ");
+
+        }
+        static string getInputName() {
+            string UserName;
+            WriteLine("What is your name: ");
+            UserName = ReadLine();
+            WriteLine("<" + UserName +">");
+
+            return UserName;
+
+        }
+        static string getFavouriteSaying() {
+            string UserFavouriteSaying;
+            WriteLine("What is your favourite saying: ");
+            UserFavouriteSaying = ReadLine();
+            WriteLine("<" + UserFavouriteSaying + ">");
+
+            return UserFavouriteSaying;
+    }
+ 
+
+
+    }

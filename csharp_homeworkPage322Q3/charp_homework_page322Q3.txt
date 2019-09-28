@@ -1,0 +1,67 @@
+using System;
+/**Creater: Andrew Spence
+ Date: 2019/08/18
+    Objective:Calculate Users BMI*/
+
+namespace csharp_homework_page322Q3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            BMICalculater AndrewBMICalculater = new BMICalculater();
+            AndrewBMICalculater.BMICalculations();
+            
+
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using static System.Console;
+
+namespace csharp_homework_page322Q3
+{
+    class BMICalculater
+    {
+        public BMICalculater()
+        {
+        }
+        public void BMICalculations()
+        {
+            WriteLine("Enter your Weight in pounds: ");
+            double weight = Convert.ToDouble(ReadLine());
+           
+
+            WriteLine("Enter your Height in inches: ");
+            double height = Convert.ToDouble(ReadLine());
+
+
+            const double KILOGRAMS_PER_POUND = 0.045359237;
+            const double METERS_PER_INCH = 0.0254;
+
+            //Compute BMI
+            double weightInKilograms = weight * KILOGRAMS_PER_POUND;
+            double heightInMeters = height * METERS_PER_INCH;
+            double bmi = weightInKilograms / (heightInMeters * heightInMeters / 10);
+
+            //Display Results
+            WriteLine("BMI is " + bmi);
+            if (bmi < 18.5)
+                WriteLine("Underweight");
+            else if (bmi < 25)
+                WriteLine("Normal");
+            else if (bmi < 30)
+                WriteLine("Overweight");
+            else
+                WriteLine("Obese");
+            {
+            }
+
+
+        }
+    }
+
+}

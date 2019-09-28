@@ -1,0 +1,47 @@
+using System;
+using static System.Console;
+using System.Linq;
+/*Creater: Andrew Spence
+ Date: 2019/08/19
+ Objective: Write a program to allow multiple sets of scores to be averaged*/
+
+namespace csharp_homework_page395Q4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Write("Please enter the number of Students: ");
+            int studentNumber = Convert.ToInt32(ReadLine());
+
+            int i = 0;
+            decimal sum = 0;
+            while (i < studentNumber)
+            {
+                WriteLine("Please Enter mark of student: " + (i + 1));
+                sum += Convert.ToDecimal(ReadLine());
+                i++;
+            }
+            decimal finalresults = sum / studentNumber;
+            WriteLine("The average is " + finalresults);
+            ReadKey();
+
+            if (finalresults > 90 && finalresults < 100)
+                WriteLine("The average Grade is a A");
+            else if
+                (finalresults > 80 && finalresults < 89)
+                WriteLine("The average Grade is a B");
+            else if
+                (finalresults > 70 && finalresults < 79)
+                WriteLine("The average Grade is a C");
+            else if
+                (finalresults > 60 && finalresults < 69)
+                WriteLine("The average Grade is a D");
+            else
+                WriteLine("The average Grade is a F");
+
+            ReadKey();
+
+        }
+    }
+}

@@ -1,0 +1,145 @@
+using System;
+using static System.Console;
+/**Creater: Andrew Spence
+ Date: 2019-08-17
+    Objective make a Employee Class,Do some Calculations,return the results also made a Andrew Class*/
+
+
+namespace csharp_homework_page255Q8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //My Objects
+            Employee totalAmountwithsalesTaxTakenOff = new Employee();
+            Employee totalAmountwithFedralTaxTakenOff = new Employee();
+            Employee totaltakenSocialSecurityTaxTakenOff = new Employee();
+            Andrew AndrewtheEmployee = new Andrew();
+
+
+            WriteLine("The Sales Tax is: " +"{0:c}",totalAmountwithsalesTaxTakenOff.CalculateSalesTax());
+            WriteLine("My Total With sales tax added is: " + "{0:c}",totalAmountwithsalesTaxTakenOff.TotalTakeHomeWithSalesTax());
+            WriteLine("*****************************");
+            WriteLine("The Federal Tax is: " +"{0:c}",totalAmountwithFedralTaxTakenOff.CalculateFederaltax());
+            WriteLine("The Total Take Home Amount is " + "{0:c}",totalAmountwithFedralTaxTakenOff.TakeHomeAfterFedaralTax());
+            WriteLine("*****************************");
+            WriteLine("The Employees Weekly Salery is: " + "{0:c}",totaltakenSocialSecurityTaxTakenOff.CalculateSocialSecurityTax());
+            WriteLine("This is the amount that is being withheld from the check(Social Security):  " + "{0:c}",totaltakenSocialSecurityTaxTakenOff.TakeHomeAfterSocialSecurity());
+            WriteLine("*****************************");
+            WriteLine(AndrewtheEmployee.MyName());
+
+
+
+        }
+    }
+
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using static System.Console;
+
+namespace csharp_homework_page255Q8
+{
+  public class  Employee
+    {
+        public string EmployeefName = "Andrew";
+        public string EmployeeLName = "Spence";
+        public double AndrewTakeHomePay = 10000000000;
+        public double takeHomePay = 800;
+        private const double TOTAL_SALES = 0.070;
+        private const double FEDERAL_TAX = 0.018;
+        private const double RETIREMENT_TAX = 10;
+        private const double SOCIAL_SECURITY_TAX = 0.06;
+        private const double EMPLOYEE_HOURLY_RATE = 16;
+        private double hoursWorked = 40;
+
+        public Employee(string GetEmployeeLastName, string GetEmployeeFirstName, double GetAndrewTakeHomePay)
+        {
+            EmployeefName = GetEmployeeFirstName;
+            EmployeeLName = GetEmployeeLastName;
+            AndrewTakeHomePay = GetAndrewTakeHomePay;
+        }
+
+        public double CalculateSalesTax()
+        {
+            return takeHomePay * TOTAL_SALES;
+        }
+        public double TotalTakeHomeWithSalesTax()
+        {
+            double results = takeHomePay * TOTAL_SALES;
+            double totalTakeHomeAmount = results + takeHomePay;
+            return totalTakeHomeAmount;
+
+        }
+        public double CalculateFederaltax()
+        {
+            return takeHomePay * FEDERAL_TAX;
+
+        }
+        public double TakeHomeAfterFedaralTax() {
+
+            double results = takeHomePay * FEDERAL_TAX;
+            double totalTakeHomeAmount = takeHomePay - results;
+            return totalTakeHomeAmount;
+        }
+        public double CalculateSocialSecurityTax() {
+
+            double results = EMPLOYEE_HOURLY_RATE  * hoursWorked;
+            return results;
+
+        }
+        public double TakeHomeAfterSocialSecurity()
+        {
+            double results = EMPLOYEE_HOURLY_RATE * hoursWorked;
+            double totaltakenSocialSecurityTax = results * SOCIAL_SECURITY_TAX;
+            return totaltakenSocialSecurityTax;
+        }
+
+        public Employee()
+        {
+        }
+        public double TakeHomePay
+        {
+            get
+            {
+                return takeHomePay;
+            }
+            set
+            {
+                takeHomePay = value;
+            }
+        }
+
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using static System.Console;
+
+namespace csharp_homework_page255Q8
+{
+    class Andrew
+    {
+        public Andrew()
+        {      
+        }
+
+        public string MyName()
+        {
+            WriteLine("Please Enter your  first Name?? ");
+            string yourfirstName = ReadLine();
+            ReadKey();
+            WriteLine("Please Enter your Last Name?? ");
+            string yourLastName = ReadLine();
+            ReadKey();
+            WriteLine("What was your sales for the Week: ");
+            string SalesforWeek = ReadLine();
+            string fullNamWithSales = yourfirstName + " " + yourLastName + " Sales for the Week is: " +"$"+ SalesforWeek;
+
+            return fullNamWithSales;
+
+        }

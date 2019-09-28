@@ -1,0 +1,41 @@
+using System;
+using static System.Console;
+
+/*Creater: Andrew Spence
+ Date: 2019/08/19
+ Objective: Write a program that generates 1000 random numbers between 0 and 100000*/
+
+namespace csharp_homeworkPage395Q3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int max = 0;
+            int min = 100000;
+            int randomNumber;
+            int counter = 0; 
+
+            Random rand = new Random();
+
+            for (int i = 0; i < 1000; i++)
+            {
+                randomNumber = rand.Next(0, 100001);
+                if (randomNumber % 2 != 0)
+                {
+                    counter++;
+                    max = (randomNumber > max) ? randomNumber : max;
+                    min = (randomNumber < min) ? randomNumber : min;
+                
+               }
+            }
+            WriteLine("Max Number: " + max + "\n" +
+                "Min Number: " + min + "\n"+
+                "total Numbers Generatedd: " + counter);
+
+            /*Sorry I coundn't put it in a web form Tried numerous ways but failed*/
+            
+
+        }
+    }
+}

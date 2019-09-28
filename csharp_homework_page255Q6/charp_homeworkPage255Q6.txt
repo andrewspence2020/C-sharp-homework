@@ -1,0 +1,143 @@
+using System;
+using static System.Console;
+/**Creater: Andrew Spence
+ * Date: 2019/08/17
+ * Create a Trip Class That calculates the total cost using the qauntity and the unit price*/
+namespace csharp_homework_page255Q6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Trip costofGas = new Trip();
+            costofGas.TotalCostOfGasoline = 16;
+            costofGas.DistanceTraveled = 312;
+
+            WriteLine("My Cost of gasoline is " + "$"+costofGas.GettotalCostOfGasoline() + " per Mile.");
+
+            WriteLine("\n");
+
+            Trip costPerMiles = new Trip();
+            costPerMiles.Expenses = 5335;
+            costPerMiles.DistanceTraveled = 300;
+
+            
+
+            WriteLine("My Cost of gasoline is " + "$"+costofGas.GettotalCostofMiles() + " per Gallon.");
+
+            WriteLine("\n");
+
+            Trip myTrip = new Trip("Niagera Falls",32,95.3,45,5885);
+
+            WriteLine("My desitanation: " + myTrip.destination + "\n" +
+                "My Distance Travled is: " + myTrip.distanceTraveled + "\n" +
+                "My Total Gasoloine is: " + "$"+myTrip.totalCostOfGasoline +"\n"+
+                "The Total Gallons Cosumed is: " + myTrip.gallonsConsumed + "\n" +
+                "My total expenses are: " +"$"+myTrip.expenses);
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using static System.Console;
+
+namespace csharp_homework_page255Q6
+{
+    class Trip
+    {
+        public string destination;
+        public double distanceTraveled;
+        public double totalCostOfGasoline;
+        public double gallonsConsumed;
+        public double expenses;
+
+        public double GettotalCostOfGasoline() => (distanceTraveled / totalCostOfGasoline);
+
+        public double GettotalCostofMiles() => distanceTraveled / expenses;
+
+        public Trip(string getdestination, double getdistanceTraveled, double gettotalCostOfGasoline,
+            double getgallonsConsumed, double getexpenses) {
+
+            destination = getdestination;
+            distanceTraveled = getdistanceTraveled;
+            totalCostOfGasoline = gettotalCostOfGasoline;
+            gallonsConsumed = getgallonsConsumed;
+            expenses = getexpenses;
+
+        }
+
+        public Trip()
+        {
+        }
+
+        public double TotalCostOfGasoline
+        {
+            get
+            {
+                return totalCostOfGasoline;
+            }
+            set
+            {
+                totalCostOfGasoline = value;
+            }
+        }
+        private double GallonsConsumed
+        {
+            get
+            {
+                return gallonsConsumed; 
+            }
+            set
+            {
+
+                gallonsConsumed = value;
+
+            }
+        }
+
+
+        public double DistanceTraveled
+        {
+            get
+            {
+                return distanceTraveled;
+            }
+            set
+            {
+                distanceTraveled = value;
+            }
+        }
+
+        private string Destination
+        {
+            get
+            {
+                return destination;
+            }
+            set
+            {
+                destination = value;
+            }
+
+        }
+        public double Expenses
+        {
+            get
+            {
+                return expenses;
+            }
+            set
+            {
+                expenses = value;
+            }
+
+        }
+
+    } 
+
+    
+}
+
+
+

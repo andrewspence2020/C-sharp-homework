@@ -1,0 +1,44 @@
+using System;
+using static System.Console;
+/*Creater: Andrew Spence
+ Date: 2019-08-18
+ Objective: Create an application that contains a loop to be used for input validation*/
+
+namespace cshaarp_homework_page394Q1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int counterGood = 0;
+            int counterBad = 0;
+            string input = "";
+
+            do
+            {
+
+                WriteLine("Please enter a number 0 - 99, or type Q to quit");
+                input = ReadLine();
+                if (!input.ToUpper().Equals("Q"))
+                {
+                    int number = 0;
+                    if (int.TryParse(input, out number))
+                    {
+                        if (number >= 0 && number <= 99)
+                            counterGood++;
+                        else
+                            counterBad++;
+                    }
+                    else
+                        counterBad++;
+                }
+            }
+            while (!input.ToUpper().Equals("Q"));
+
+            WriteLine("Valid numbers enter " + counterGood);
+
+            WriteLine("Valid numbers enter " + counterBad);
+            ReadKey();
+        }
+    }
+}

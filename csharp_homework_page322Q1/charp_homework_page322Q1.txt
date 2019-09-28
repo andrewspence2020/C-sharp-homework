@@ -1,0 +1,83 @@
+using System;
+using static System.Console;
+/**Creater: Andrew Spence
+ Date: 2019/08/18
+    Objective:Write a program that takes a deciaml value between 1 and 10 and display it's Equivilant Roman numeral value
+    Then added loop so you can press enter and try out different inputs*/
+
+namespace csharp_homework_page322Q1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            RomanNumCalculate AndrewRomanCalculater = new RomanNumCalculate();
+            AndrewRomanCalculater.RomanNumCalculaterInput();
+
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using static System.Console;
+
+
+namespace csharp_homework_page322Q1
+{
+    class RomanNumCalculate
+    {
+        
+       public RomanNumCalculate()
+        {
+        }
+      
+        int getmyInputValue;
+       public void RomanNumCalculaterInput()
+        {
+            char choice = 'y';
+            do
+            {
+                WriteLine("Hello, Choose a number from one to ten to get your Equivelent Roman Numeral(0 to 10)");
+                int InputValue = Convert.ToInt32(ReadLine());
+
+                switch (InputValue)
+                {
+                    case 1:
+                        WriteLine("Your Roman Numeral is: I"); break;
+                    case 2:
+                        WriteLine("Your Roman Numeral is: II"); break;
+                    case 3:
+                        WriteLine("Your Roman Numeral is: III"); break;
+                    case 4:
+                        WriteLine("Your Roman Numeral is: IV"); break;
+                    case 5:
+                        WriteLine("Your Roman Numeral is: V"); break;
+                    case 6:
+                        WriteLine("Your Roman Numeral is: VI"); break;
+                    case 7:
+                        WriteLine("Your Roman Numeral is: VII"); break;
+                    case 8:
+                        WriteLine("Your Roman Numeral is: VIII"); break;
+                    case 9:
+                        WriteLine("Your Roman Numeral is: IX"); break;
+                    case 10:
+                        WriteLine("Your Roman Numeral is: X"); break;
+
+                    default: WriteLine("Invalid Input"); break;
+                } 
+               // Added Extra Feature for user to continuesly press enter and get a numeric value
+                ReadKey();
+            } while (choice == 'y' || choice == 'Y');
+
+            {
+
+
+            }
+            
+
+        }
+
+    }
+}

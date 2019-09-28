@@ -1,0 +1,57 @@
+using System;
+using static System.Console;
+/*Creater: Andrew Spence
+ Date: 2019/08/19
+ Objective: Write a application that will enable a veder to see what earnings he can 
+ expect to make based on what percenntage he marks up an item*/
+
+namespace csharp_homework_page394Q2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const double percentage1 = 0.05;
+            const double percentage2 = 0.06;
+            const double percentage3 = 0.07;
+            const double percentage4 = 0.08;
+            const double percentage5 = 0.09;
+            const double percentage6 = 0.10;
+
+                double wholesalePrice;
+                Write("Enter the wholesale Item Price: ");
+                wholesalePrice = Convert.ToDouble(Console.ReadLine());
+
+
+                WriteLine("{0,26}", "Andrew's Markup Table");
+                WriteLine("******************************");
+
+                double markUp = percentage1 * wholesalePrice;
+                double results = wholesalePrice + markUp;
+                Write("Markup:");
+                WriteLine("{0,8:F0}{1,15:C}", "5%", results);
+
+                double markUp1 = percentage2 * wholesalePrice;
+                double results1 = wholesalePrice + markUp1;
+                Write("Markup:");
+                WriteLine("{0,8:F0}{1,15:C}", "6%", results1);
+
+                double markUp2 = percentage3 * wholesalePrice;
+                double results2 = wholesalePrice + markUp2;
+                Write("Markup:");
+                WriteLine("{0,8:F0}{1,15:C}", "7%", results2);
+
+                double markUp3 = percentage4 * wholesalePrice;
+                double results3 = wholesalePrice + markUp3;
+                Write("Markup:");
+                WriteLine("{0,8:F0}{1,15:C}", "8%", results3);
+
+                double markUp4 = percentage5 * wholesalePrice;
+                double results4 = wholesalePrice + markUp4;
+                Write("Markup:");
+                WriteLine("{0,8:F0}{1,15:C}", "9%", results4);
+
+                double markUp5 = percentage6 * wholesalePrice;
+                double results5 = wholesalePrice + markUp5;
+                Write("Markup:");
+                WriteLine("{0,8:F0}{1,15:C}", "10%", results5);

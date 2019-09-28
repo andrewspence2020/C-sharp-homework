@@ -1,0 +1,36 @@
+using System;
+using static System.Console;
+/**Creater: Andrew
+ Date: 2019/08/17
+ Ojective  Write a app that includes two addtional methods in addition to the main method*/
+
+namespace csharp_homework_page195Q2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            Astericks();
+        }
+        public static void AboutSchool() {
+           
+            WriteLine("*********Name Of School: Duke of Connaught********");
+            ReadKey();
+            WriteLine("*********Number of students Enrolled: 2000********");
+            ReadKey();
+            WriteLine("*********School Colors: Red, White, gold**********");
+            ReadKey();
+            WriteLine("*********Only there for  grade 8******************");
+
+            return;
+        }
+        public static void Astericks() {
+            WriteLine("*************************************************");
+            ReadKey();
+            AboutSchool(); 
+            ReadKey();
+            WriteLine("*************************************************");
+        }
+    }
+}

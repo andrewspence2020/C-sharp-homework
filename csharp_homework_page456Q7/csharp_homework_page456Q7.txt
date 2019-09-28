@@ -1,0 +1,33 @@
+  public class Question7 {
+        public static void Main() {
+            var mississaugaExchange = new AreaCodeExchange(905, 365, 289);
+            var torontoExchange = new AreaCodeExchange(416, 437, 647);
+
+            Console.WriteLine("Mississauga Exchange: " + mississaugaExchange);
+            Console.WriteLine("Mississauga " + GetHasString(mississaugaExchange, 905) + " the area code 905.");
+            Console.WriteLine("Mississauga " + GetHasString(mississaugaExchange, 416) + " the area code 416.");
+            Console.WriteLine("\nToronto Exchange: " + torontoExchange);
+            Console.WriteLine("Toronto " + GetHasString(torontoExchange, 647) + " the area code 647.");
+            Console.WriteLine("Toronto " + GetHasString(torontoExchange, 289) + " the area code 289.");
+        }
+
+        private static string GetHasString(AreaCodeExchange exchange, int areaCode) {
+            return exchange.Has(areaCode) ? "has" : "does not have";
+        }
+
+        private class AreaCodeExchange {
+            private readonly int[] exchange;
+
+            public AreaCodeExchange(params int[] areaCodes) {
+                this.exchange = areaCodes;
+            }
+
+            public bool Has(int areaCode) {
+                return exchange.Contains(areaCode);
+            }
+
+            public override string ToString() {
+                return "(" + string.Join("),(", exchange) + ")";
+            }
+        }
+    }

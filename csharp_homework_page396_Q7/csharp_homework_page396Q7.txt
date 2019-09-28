@@ -1,0 +1,54 @@
+using System;
+using static System.Console;
+/*Creater: Andrew Spence
+ Date:2019/08/20
+ Objective: Write a program that produces a multipliction table with 25 rows of computations*/
+
+namespace csharp_homework_page396Q7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int beginningValues;
+            int endValues;
+
+            do
+            {
+                Write("Please enter beginning base value: ");
+                beginningValues = Convert.ToInt32(ReadLine());
+                Write("Please enter ending base value: ");
+                endValues = Convert.ToInt32(ReadLine());
+
+                if (beginningValues < 2 || endValues > 8)
+                    WriteLine("Invalid Input");
+            } while (beginningValues < 2 || endValues > 8);
+            Write("\n");
+
+            //headers
+            for (int i = beginningValues - 1; i <= endValues; i++)
+            {
+                if (i == beginningValues - 1) 
+                    Write(String.Format("{0,10}","n"));
+                 else
+                    Write(String.Format("{0,10}", i));
+            }
+            WriteLine("\n");
+           
+
+            for (int i = 1; i <= 25; i++)//rows
+            {
+                Write(String.Format("{0,10}",i));
+                for (int b = beginningValues; b <= endValues; b++)//coloumns
+                {
+                    string output = String.Format("{0,10}", i * b);
+                    Write(output);
+
+                }
+                WriteLine("");
+            }
+
+        }
+    }
+}

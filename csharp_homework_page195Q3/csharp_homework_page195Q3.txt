@@ -1,0 +1,62 @@
+using System;
+using static System.Console;
+/*Creater:Andrew Spence
+ * Date:2019-08-14
+ * Objective: To make a appplication that makes the user input the height and width of a rectangle and 
+ * Display the results in a tubular table
+ * **/
+
+namespace csharp_homework_page195Q3
+{
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            Instructions();
+            Write("Enter the height of the rectangle: ");
+            double value1 = Convert.ToDouble(Console.ReadLine());
+            Write("Enter the width of the rectangle: ");
+            double value2 = Convert.ToDouble(Console.ReadLine());
+
+            double result = ParimeterOfRectangle(value1, value2);
+            WriteLine("{0,28}", "Parimeter of a rectangle");
+            WriteLine("{0,-25}{1}","Height ", value2);
+            WriteLine("{0,-25}{1}", "Width " , value1);
+            WriteLine("{0,-25}{1}", "Parimeter " , result);
+
+            WriteLine("****************************************");
+
+            double result1 = AreaOfRectangle(value1, value2);
+            WriteLine("{0,28}", "Area of a rectangle");
+            WriteLine("{0,-25}{1}", "Height ", value2);
+            WriteLine("{0,-25}{1}", "Width ", value1);
+            WriteLine("{0,-25}{1}", "Area ", result1);
+
+        }
+        public static void Instructions() {
+            WriteLine("Hello EveryOne My name is Andrew And we are going to Calculate a rectangle today" +
+               "\n" + "Whenever press any key and lets get started!!" + "\n");
+            ReadKey();
+            
+        }
+        static double ParimeterOfRectangle(double num1, double num2) {
+            double parimeter = num1 + num2 + num1 + num2;
+
+            return parimeter;
+
+        }
+        static double AreaOfRectangle(double num1, double num2) {
+
+            double Area = num1 * num2;
+            return Area;
+        }
+
+
+
+    }
+
+
+
+    }

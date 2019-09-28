@@ -1,0 +1,195 @@
+using System;
+/*Creater: Andrew
+ Date: 2019/08/18
+ Objective: Write a program that calculates the take home pay for an employee*/
+
+namespace csharp_homework_page322Q4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee employeePay = new Employee();
+            employeePay.GetEmplyeeBio();
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using static System.Console;
+
+namespace csharp_homework_page322Q4
+{
+    class Employee
+    {
+        private const double FEDERAL_TAX = 18.5;
+        private const double RETIREMENT_CONTRIBUTION = 10;
+        private const double SOCIAL_SECURITY = 6;
+
+        public void GetEmplyeeBio()
+        {
+            Write("Enter your First Name: ");
+            string fName = ReadLine();
+            Write("Enter your Last Name: ");
+            string lName = ReadLine();
+            Write("What is Your Employee ID: ");
+            string employee = ReadLine();
+            Write("Are you paid by Salery or Hourly: ");
+            string kindOfPay = ReadLine();
+        
+        
+            
+            if (kindOfPay == "Salery" || kindOfPay == "salery")
+            {
+                Write(fName + " " + lName + " Please Enter your Salery Amount: " + "\n");
+                double saleryAmount = Convert.ToDouble(ReadLine());
+
+                WriteLine(fName + " " + lName + " Your Salery is: " + "{0:c}", saleryAmount);
+                ReadKey();
+
+                WriteLine("****************************************************");
+
+
+                double federalTaxTakenOff = saleryAmount * FEDERAL_TAX  / 100;
+                WriteLine("Your Federal tax per year is: " + "{0:c}", federalTaxTakenOff);
+                ReadKey();
+
+                WriteLine("***************************************************");
+
+
+                double retirementTaxTakenOff = saleryAmount * RETIREMENT_CONTRIBUTION  / 100;
+                WriteLine("Your Retirement Contribution tax per year is " + "{0:c}", retirementTaxTakenOff);
+     
+                ReadKey();
+
+                WriteLine("***************************************************");
+
+                double SocialSecurityTaxTakenOff = saleryAmount * SOCIAL_SECURITY  / 100;
+                WriteLine("Your Social Secuirty tax per year is: " + "{0:c}", SocialSecurityTaxTakenOff);
+                ReadKey();
+
+                WriteLine("***************************************************");
+
+                double finalAmount = federalTaxTakenOff + retirementTaxTakenOff + SocialSecurityTaxTakenOff;
+                double AbsoluteAmount = saleryAmount - finalAmount;
+                WriteLine("Your final Amount with all Taxes Taken off is: " + "{0:c}", AbsoluteAmount);
+
+
+            }
+            else if (kindOfPay == "hourly" || kindOfPay == "Hourly")
+            {
+                Write(fName + " " + lName + " How much do you make per hour: ");
+                double hourlyAmount = Convert.ToDouble(ReadLine());
+
+                Write(fName + " " + lName + " How much hours do you work per week: ");
+                double weeklyAmount = Convert.ToDouble(ReadLine());
+                ReadKey();
+
+                WriteLine("******************************************************");
+
+                if (weeklyAmount > 40)
+                {
+                    double OvertimeAmount = (weeklyAmount * 1.5) * hourlyAmount;
+                    WriteLine(fName + " " + lName + " Your Weekly Amount with Overtime is: " + "{0:c}",OvertimeAmount);
+
+                    double yearlyOvertimeAmount = (weeklyAmount * 1.5) * hourlyAmount * 52;
+                    WriteLine(fName + " " + lName + " Your Yearly Amount with Overtime is: " + "{0:c}",yearlyOvertimeAmount);
+
+                    ReadKey();
+
+                    WriteLine("******************************************************");
+
+                    double federalTaxTakenOff = OvertimeAmount * FEDERAL_TAX / 100;
+                    WriteLine("Your Federal tax per year is: " + "{0:c}", federalTaxTakenOff);
+                    ReadKey();
+
+                    WriteLine("****************************************************");
+
+                    double retirementTaxTakenOff = OvertimeAmount * RETIREMENT_CONTRIBUTION / 100;
+                    WriteLine("Your Retirement Contribution tax per year is " + "{0:c}", retirementTaxTakenOff);
+                    ReadKey();
+
+                    WriteLine("***************************************************************");
+
+
+
+                    double SocialSecurityTaxTakenOff = OvertimeAmount * SOCIAL_SECURITY / 100;
+                    WriteLine("Your Social Secuirty tax per year is: " + "{0:c}", SocialSecurityTaxTakenOff);
+                    ReadKey();
+
+                    WriteLine("***************************************************************");
+
+
+                    double finalAmount = federalTaxTakenOff + retirementTaxTakenOff + SocialSecurityTaxTakenOff;
+                    double AbsoluteAmount = OvertimeAmount - finalAmount;
+                    WriteLine("Your final Amount with all Taxes Taken off is: " + "{0:c}", AbsoluteAmount);
+                    ReadKey();
+
+                    WriteLine("***************************************************************");
+
+
+                }
+                else if (weeklyAmount <= 40)
+                {
+                    double totalWeeklyAmount = hourlyAmount * weeklyAmount;
+                    WriteLine(fName + " " + lName + " Your Weekly Amount is: " + "{0:c}",totalWeeklyAmount);
+                    ReadKey();
+
+                    WriteLine("**************************************************************");
+
+                    double yearlyAmount = weeklyAmount * (hourlyAmount) * 52;
+                    WriteLine(fName + " " + lName + " Your Yearly Amount is: " + "{0:c}", yearlyAmount);
+                    ReadKey();
+
+                    WriteLine("**************************************************************");
+
+                    double federalTaxTakenOff = totalWeeklyAmount * FEDERAL_TAX / 100;
+                    double federalTaxTakenOff1 = totalWeeklyAmount * FEDERAL_TAX * 52 / 100;
+                    WriteLine("Your Federal tax per week is : " + "{0:c}", federalTaxTakenOff);
+                    WriteLine("Your Federal tax per year is : " + "{0:c}", federalTaxTakenOff1);
+                    ReadKey();
+
+                    WriteLine("**************************************************************");
+
+
+                    double retirementTaxTakenOff = totalWeeklyAmount * RETIREMENT_CONTRIBUTION / 100;
+                    double retirementTaxTakenOff1 = totalWeeklyAmount * RETIREMENT_CONTRIBUTION * 52 / 100;
+                    WriteLine("Your Retirement Contribution tax per Week is " + "{0:c}", retirementTaxTakenOff);
+                    WriteLine("Your Retirement Contribution tax per Year is " + "{0:c}", retirementTaxTakenOff1);
+                    ReadKey();
+
+                    WriteLine("************************************************");
+
+                    double SocialSecurityTaxTakenOff = totalWeeklyAmount * SOCIAL_SECURITY / 100;
+                    double SocialSecurityTaxTakenOff1 = totalWeeklyAmount * SOCIAL_SECURITY * 52 / 100;
+                    WriteLine("Your Social Secuirty tax per Week is: " + "{0:c}", SocialSecurityTaxTakenOff);
+                    WriteLine("Your Social Secuirty tax per Week is: " + "{0:c}", SocialSecurityTaxTakenOff1);
+                    ReadKey();
+
+                    WriteLine("***********************************************");
+
+                    double finalAmount = federalTaxTakenOff + retirementTaxTakenOff + SocialSecurityTaxTakenOff;
+                    double AbsoluteAmount = totalWeeklyAmount - finalAmount;
+                    WriteLine("Your Weekly Amount with all Taxes Taken off is: " + "{0:c}", AbsoluteAmount);
+                    ReadKey();
+
+                    WriteLine("***********************************************");
+
+                    finalAmount = federalTaxTakenOff1 + retirementTaxTakenOff1 + SocialSecurityTaxTakenOff1;
+                    AbsoluteAmount = yearlyAmount - finalAmount;
+                    WriteLine("Your Yearly Amount with all Taxes Taken off is: " + "{0:c}", AbsoluteAmount);
+                    ReadKey();
+
+                    WriteLine("***********************************************");
+                }
+                else
+                    WriteLine("Invalid Input");
+
+            }
+
+        }
+
+    }
+}
